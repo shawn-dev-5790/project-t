@@ -1,5 +1,5 @@
-import { GameTime } from '../util/GameTime'
-import { performanceChecker } from '../util/decorator/performanceChecker'
+import { GameTime } from '../utils/GameTime'
+import { performanceChecker } from '../utils/decorator/performanceChecker'
 
 // 기본 FPS 및 업데이트 목록
 const DEFAULT_FPS: GameLoop['fps'] = 60

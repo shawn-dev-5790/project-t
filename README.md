@@ -1,46 +1,15 @@
-# Getting Started with Create React App
+# 기능적 본질
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+물론이죠! 게임의 기능적인 본질에 접근하는 것은 게임의 핵심을 이해하고 필요한 기능들을 파악하는 데 중요합니다. 게임의 기능적인 측면을 고려할 때 몇 가지 핵심적인 부분들을 고려할 수 있습니다.
 
-## Available Scripts
+유닛 및 카드 관리 시스템: 플레이어가 소유하는 유닛과 카드들을 관리하고 선택하는 시스템이 필요합니다. 이를 위해서는 유닛의 능력, 레벨, 카드의 종류와 효과 등을 관리하는 시스템이 필요할 것입니다.
 
-In the project directory, you can run:
+이벤트 및 웨이브 시스템: 다양한 이벤트와 웨이브를 관리하고 발생시키는 시스템이 필요합니다. 이를 통해 플레이어들은 적절한 전략과 유닛을 선택하여 각 상황에 맞게 대응할 수 있을 겁니다.
 
-### `npm start`
+전투 및 전술 시스템: 전투 시스템은 유닛들 간의 전투를 관리하고 전략적인 선택을 할 수 있는 기능을 제공해야 합니다. 전투에 따라 유닛들의 특성이 어떻게 작용하고, 전략이 어떻게 반영되는지 고려해야 합니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+클래스 및 플레이어 선택 시스템: 플레이어들이 클래스를 선택하고 해당 클래스의 특성을 반영하여 게임을 진행할 수 있도록 하는 시스템이 필요합니다. 각 클래스가 갖는 특성과 장단점을 고려하여 선택할 수 있도록 돕는 기능이 필요할 것입니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+진행 및 스테이지 시스템: 게임 진행을 관리하고 스테이지를 구성하는 시스템이 필요합니다. 스테이지마다 목표와 이벤트, 웨이브 등을 설정하여 플레이어들의 게임 진행을 이끌어내야 합니다.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+이런 기능적인 요소들을 어떻게 구현할지, 각각의 시스템들이 어떻게 상호작용할지 고려하는 것이 게임의 핵심을 이해하고 완성도 있는 게임을 만드는 데 중요할 것입니다. 이런 기능들을 어떻게 구성하고 관리할지에 대해 이미 아이디어가 있으신가요?

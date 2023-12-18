@@ -1,6 +1,6 @@
-import { PooledObject } from '../engine/GameObjectPool'
+import { PooledObject } from '../../engine/GameObjectPool'
 
-export class Mob implements PooledObject {
+export class MobObject implements PooledObject {
   public isActive: boolean = false
   public x: number = 0
   public y: number = 0

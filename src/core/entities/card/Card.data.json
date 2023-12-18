@@ -1,0 +1,62 @@
+[
+  {
+    "id": "archer",
+    "type": "UNIT",
+    "category": "PHYSICAL",
+    "rarity": "COMMON",
+    "race": "HUMAN",
+    "name": "Archer",
+    "desc": "Basic Drakian archer",
+    "img": "archer_image.png"
+  },
+  {
+    "id": "swordsman",
+    "type": "UNIT",
+    "category": "PHYSICAL",
+    "rarity": "COMMON",
+    "race": "HUMAN",
+    "name": "Swordsman",
+    "desc": "Skilled swordsman",
+    "img": "swordsman_image.png"
+  },
+  {
+    "id": "shieldbearer",
+    "type": "UNIT",
+    "category": "PHYSICAL",
+    "rarity": "COMMON",
+    "race": "HUMAN",
+    "name": "Shield Bearer",
+    "desc": "Defender with a shield",
+    "img": "shieldbearer_image.png"
+  },
+  {
+    "id": "spearman",
+    "type": "UNIT",
+    "category": "PHYSICAL",
+    "rarity": "COMMON",
+    "race": "HUMAN",
+    "name": "Spearman",
+    "desc": "Skilled spearman",
+    "img": "spearman_image.png"
+  },
+  {
+    "id": "guardsman",
+    "type": "UNIT",
+    "category": "PHYSICAL",
+    "rarity": "COMMON",
+    "race": "HUMAN",
+    "name": "Guardsman",
+    "desc": "Sturdy castle guard",
+    "img": "guardsman_image.png"
+  },
+  {
+    "id": "cavalryman",
+    "type": "UNIT",
+    "category": "PHYSICAL",
+    "rarity": "COMMON",
+    "race": "HUMAN",
+    "name": "Cavalryman",
+    "desc": "Fast and mounted warrior",
+    "img": "cavalryman_image.png"
+  }
+]
