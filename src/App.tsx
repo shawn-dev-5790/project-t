@@ -3,20 +3,22 @@ import './App.css'
 
 import { GameLoop } from './core/engine/GameLoop'
 import CardFactory from './core/entities/card/Card.factory'
-import Matrix from './core/utils/Matrix'
+import Matrix from './core/engine/GameMatrix'
 
 const gameLoop = new GameLoop(1, [{ update: (d) => console.log('update'), render: (d) => console.log('render') }])
 
 console.log(CardFactory.cards.forEach((c) => console.log(c.data)))
 
 function App() {
-  const [w, h, r] = [20, 16, 6]
-  const matrix = new Matrix<number>(w, h, 0) // 10x10 크기의 행렬 생성
+  const [w, h] = [20, 16]
+  const m = new Matrix<string>(w, h, 'id') // 10x10 크기의 행렬 생성
 
   const [c, setCoord] = useState({ x: Math.ceil(w / 2), y: Math.ceil(h / 2) })
 
-  const aoe = matrix.getFanArea(c.x, c.y, r, 360 -120, 360 -60 )
-  // const aoe = matrix.getDiamondArea(c.x, c.y, r)
+  // const aoe = m.getDiamondArea(c.x, c.y, r)
+  // const aoe = m.getRectangleArea(c.x, c.y, 1, 3)
+  // const aoe = m.getFanArea(c.x, c.y, 12, 360 - 45, 45)
+  const aoe = m.getCircularArea(c.x, c.y, 3)
 
   return (
     <div className='App'>
@@ -29,7 +31,7 @@ function App() {
         <div style={{ position: 'relative' }}>
           <table style={{ borderCollapse: 'collapse' }}>
             <tbody>
-              {matrix.data.map((cells, y) => (
+              {m.matrix.map((cells, y) => (
                 <tr key={y}>
                   {cells.map((_, x) => (
                     <td
