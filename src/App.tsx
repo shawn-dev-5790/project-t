@@ -4,6 +4,7 @@ import './App.css'
 import { GameLoop } from './core/engine/GameLoop'
 import CardFactory from './core/entities/card/Card.factory'
 import Matrix from './core/engine/GameMatrix'
+import TileFactory from './core/entities/tile/Tile.factory'
 
 const gameLoop = new GameLoop(1, [{ update: (d) => console.log('update'), render: (d) => console.log('render') }])
 
@@ -19,6 +20,9 @@ function App() {
   // const aoe = m.getRectangleArea(c.x, c.y, 1, 3)
   // const aoe = m.getFanArea(c.x, c.y, 12, 360 - 45, 45)
   const aoe = m.getCircularArea(c.x, c.y, 3)
+
+  const tf = TileFactory.createTileMatrix(10, 10, TileFactory.generateRandomTileMatrixData(10, 10))
+  console.log(tf)
 
   return (
     <div className='App'>
@@ -52,7 +56,7 @@ function App() {
           </table>
           {aoe.map(({ x, y }, i) => (
             <div
-              key={'1' + i}
+              key={i}
               onClick={() => setCoord({ x, y })}
               style={{
                 position: 'absolute',
@@ -62,12 +66,12 @@ function App() {
                 height: '52px',
                 background: 'rgba(0,0,0,0.2)',
               }}
-            ></div>
+            />
           ))}
         </div>
         <pre>
           {aoe.map((o) => (
-            <div>({[o.x, o.y].join(',')})</div>
+            <div key={[o.x, o.y].join(',')}>({[o.x, o.y].join(',')})</div>
           ))}
         </pre>
       </section>

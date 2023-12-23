@@ -11,10 +11,14 @@ interface ITarget<T> {
  * @template T - 매트릭스의 요소 유형
  */
 export default class GameMatrix<T> {
+  public rows: number = 0
+  public cols: number = 0
   public matrix: T[][] = []
 
-  constructor(x: number, y: number, value: T) {
-    this.matrix = Array.from({ length: y }, () => new Array(x).fill(value))
+  constructor(rows: number, cols: number, value: T) {
+    this.rows = rows
+    this.cols = cols
+    this.matrix = Array.from({ length: cols }, () => new Array(rows).fill(value))
   }
 
   /**

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "empty",
+    "name": "empty",
+    "isMovable": false,
+    "isPlacable": false,
+    "events": []
+  },
+  {
+    "id": "tile_grass_1",
+    "name": "grass",
+    "isMovable": true,
+    "isPlacable": true,
+    "events": []
+  },
+  {
+    "id": "tile_grass_2",
+    "name": "grass_yellow",
+    "isMovable": true,
+    "isPlacable": true,
+    "events": []
+  },
+  {
+    "id": "tile_grass_3",
+    "name": "grass_greener",
+    "isMovable": true,
+    "isPlacable": true,
+    "events": []
+  },
+  {
+    "id": "tile_sand_1",
+    "name": "sand",
+    "isMovable": true,
+    "isPlacable": true,
+    "events": []
+  },
+  {
+    "id": "tile_rock_1",
+    "name": "rock",
+    "isMovable": false,
+    "isPlacable": false,
+    "events": []
+  },
+  {
+    "id": "tile_tree_1",
+    "name": "tree",
+    "isMovable": false,
+    "isPlacable": false,
+    "events": []
+  },
+  {
+    "id": "tile_void_1",
+    "name": "void",
+    "isMovable": false,
+    "isPlacable": false,
+    "events": []
+  },
+  {
+    "id": "tile_door_1",
+    "name": "door",
+    "isMovable": true,
+    "isPlacable": false,
+    "events": []
+  },
+  {
+    "id": "tile_house_1",
+    "name": "house",
+    "isMovable": true,
+    "isPlacable": false,
+    "events": []
+  }
+]
