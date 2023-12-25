@@ -8,7 +8,7 @@ export default class TileFactory {
     const tileMatrix = new GameMatrix<Tile>(rows, cols, Tile.init())
     for (let y = 0; y < cols; y++) {
       for (let x = 0; x < rows; x++) {
-        tileMatrix.set(x, y, new Tile(tileMatrixData[x][y].id))
+        tileMatrix.set(x, y, new Tile(tileMatrixData[y][x].id))
       }
     }
     return tileMatrix

@@ -32,7 +32,7 @@ export class GameLoop {
     this.running = true
     this.timer = GameTime.now()
 
-    this._loop()
+    this.loop()
   }
 
   /**
@@ -50,7 +50,7 @@ export class GameLoop {
    * @private
    */
   @performanceChecker
-  private _update(delta: number): void {
+  private update(delta: number): void {
     this.updates.forEach((obj) => obj.update(delta))
   }
 
@@ -59,7 +59,7 @@ export class GameLoop {
    * @param delta - 직전 업데이트 이후의 경과 시간 (초)입니다.
    * @private
    */
-  private _render(delta: number): void {
+  private render(delta: number): void {
     this.updates.forEach((obj) => obj.render(delta))
   }
 
@@ -67,7 +67,7 @@ export class GameLoop {
    * 게임 루프 메서드: requestAnimationFrame을 이용해 주기적으로 호출됩니다.
    * @private
    */
-  private _loop(): void {
+  private loop(): void {
     if (!this.running) return
 
     const current = GameTime.now()
@@ -77,12 +77,12 @@ export class GameLoop {
 
     // FPS 주기에 맞게 업데이트 실행, 게임 연산은 3배 빠르게.
     if (elapsed > tick) {
-      this._update(delta)
-      this._render(delta)
+      this.update(delta)
+      this.render(delta)
       this.timer = current
     }
 
     // 다음 프레임 요청
-    requestAnimationFrame(() => this._loop())
+    requestAnimationFrame(() => this.loop())
   }
 }

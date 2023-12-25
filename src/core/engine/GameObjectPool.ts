@@ -32,20 +32,8 @@ export default class GameObjectPool<T extends PooledObject> {
    * @param poolSize - 객체 풀의 크기입니다.
    */
   constructor(private creator: new () => T, private poolSize: number) {
-    this.init()
-  }
-
-  // private methods
-
-  /**
-   * 객체 풀을 초기화합니다.
-   * @private
-   */
-  private init(): void {
     this.pool = Array.from({ length: this.poolSize }, () => new this.creator())
   }
-
-  // public methods
 
   /**
    * 현재 활성 상태인 모든 객체를 반환합니다.

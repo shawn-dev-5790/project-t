@@ -1,82 +1,63 @@
-import { useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import './App.css'
 
 import { GameLoop } from './core/engine/GameLoop'
-import CardFactory from './core/entities/card/Card.factory'
-import Matrix from './core/engine/GameMatrix'
+import GameRenderer from './core/engine/GameRenderer'
 import TileFactory from './core/entities/tile/Tile.factory'
 
-const gameLoop = new GameLoop(1, [{ update: (d) => console.log('update'), render: (d) => console.log('render') }])
+export default function App() {
+  const [game, setGame] = useState<{
+    cw: number
+    ch: number
+    loop: GameLoop
+  } | null>(null)
 
-console.log(CardFactory.cards.forEach((c) => console.log(c.data)))
+  useLayoutEffect(() => {
+    const config = {
+      width: 80,
+      height: 40,
+      size: 20,
+      fps: 30,
+      canvas: document.getElementById('gameCanvas') as HTMLCanvasElement,
+    }
+    const state = {
+      x: 0,
+      y: 0,
+    }
 
-function App() {
-  const [w, h] = [20, 16]
-  const m = new Matrix<string>(w, h, 'id') // 10x10 크기의 행렬 생성
+    const tiles = TileFactory.createTileMatrix(config.width, config.height, TileFactory.generateRandomTileMatrixData(config.width, config.height))
+    const render = new GameRenderer(config.canvas)
+    const loop = new GameLoop(config.fps, [
+      {
+        update: (delta) => {},
+        render: (delta) => {
+          render.clearCanvas()
+          render.renderMatrix(tiles.matrix)
+          render.renderCell(state.x, state.y)
+        },
+      },
+    ])
+    config.canvas.addEventListener('click', (e) => {
+      const rect = config.canvas.getBoundingClientRect()
+      const x = Math.floor((e.clientX - rect.left) / config.size)
+      const y = Math.floor((e.clientY - rect.top) / config.size)
+      state.x = x
+      state.y = y
+    })
 
-  const [c, setCoord] = useState({ x: Math.ceil(w / 2), y: Math.ceil(h / 2) })
-
-  // const aoe = m.getDiamondArea(c.x, c.y, r)
-  // const aoe = m.getRectangleArea(c.x, c.y, 1, 3)
-  // const aoe = m.getFanArea(c.x, c.y, 12, 360 - 45, 45)
-  const aoe = m.getCircularArea(c.x, c.y, 3)
-
-  const tf = TileFactory.createTileMatrix(10, 10, TileFactory.generateRandomTileMatrixData(10, 10))
-  console.log(tf)
+    setGame({
+      cw: config.width * config.size,
+      ch: config.height * config.size,
+      loop,
+    })
+  }, [])
 
   return (
     <div className='App'>
       <section>
-        <strong>loop</strong>
-        <button onClick={() => gameLoop.start()}>start</button>
-        <button onClick={() => gameLoop.stop()}>stop</button>
-      </section>
-      <section>
-        <div style={{ position: 'relative' }}>
-          <table style={{ borderCollapse: 'collapse' }}>
-            <tbody>
-              {m.matrix.map((cells, y) => (
-                <tr key={y}>
-                  {cells.map((_, x) => (
-                    <td
-                      key={x}
-                      children={[x, y].join(',')}
-                      onClick={() => setCoord({ x, y })}
-                      style={{
-                        overflow: 'hidden',
-                        width: '50px',
-                        height: '50px',
-                        background: c.x === x && c.y === y ? 'gold' : '#ffffff',
-                      }}
-                    />
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          {aoe.map(({ x, y }, i) => (
-            <div
-              key={i}
-              onClick={() => setCoord({ x, y })}
-              style={{
-                position: 'absolute',
-                left: 52 * x + 'px',
-                top: 52 * y + 'px',
-                width: '52px',
-                height: '52px',
-                background: 'rgba(0,0,0,0.2)',
-              }}
-            />
-          ))}
-        </div>
-        <pre>
-          {aoe.map((o) => (
-            <div key={[o.x, o.y].join(',')}>({[o.x, o.y].join(',')})</div>
-          ))}
-        </pre>
+        <button onClick={() => game?.loop.start()}>start</button>
+        <canvas id='gameCanvas' width={game?.cw} height={game?.ch}></canvas>
       </section>
     </div>
   )
 }
-
-export default App
